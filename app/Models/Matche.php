@@ -28,4 +28,5 @@ class Matche extends Model
         return $this->belongsTo('App\Models\Team', 'away_team_id');
     }
 
+
 }

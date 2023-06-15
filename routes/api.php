@@ -19,5 +19,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::post('/reset', 'App\Http\Controllers\LeagueController@resetData');
 
+Route::get('/flush', function () {
+    session()->flush();
+    return redirect('/');
+});

@@ -15,7 +15,7 @@
     </head>
     <body class="antialiased">
        <div id="app">            
-            <simulation  :teams="{{$teams}}" :fixtures="{{$fixtures}}"  :week="{{ $currentWeek }}"/> 
+            <simulation  :teams="{{$teams}}" :fixtures="{{$fixtures}}"  :week="{{ $currentWeek }}" :weekallow="{{$weekAllow}}"/> 
        </div>
     </body>
 </html>
