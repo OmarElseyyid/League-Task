@@ -63,8 +63,12 @@ League Task is a PHP web application that manages a league and generates fixture
 To start the development server, run the following both commands:
 
     npm run dev
-
+    & 
     php artisan serve
+
+To run test 
+
+    php artisan test
 
 ## Screenshots
 
@@ -84,4 +88,6 @@ To start the development server, run the following both commands:
 ![App Screenshot](https://www.linkpicture.com/q/14_42.png)
 ![App Screenshot](https://www.linkpicture.com/q/15_45.png)
 ![App Screenshot](https://www.linkpicture.com/q/16_45.png)
+![App Screenshot](https://www.linkpicture.com/q/17_49.png)
+![App Screenshot](https://www.linkpicture.com/q/18_13.png)
 
