@@ -20,7 +20,6 @@ class LeagueController extends Controller
     private const LOSS_STRENGTH_DECREASE = 5;
     private const DRAW_STRENGTH_INCREASE = 3;
     private const LOSE_IN_HOME_DECREASE = 10;
-
     public function index()
     {
         $param = Team::all();
@@ -101,7 +100,6 @@ class LeagueController extends Controller
         $component = 'fixtures';
         return view('league.home', compact('param' , 'component'));        
     }
-
     public function simulate(){
 
         $currentWeek = Session::get('currentWeek', 1);
@@ -123,7 +121,6 @@ class LeagueController extends Controller
         //dd($fixtures);
         return view('league.simulation', compact('currentWeek', 'teams', 'fixtures', 'weekAllow'));
     }
-
     public function playNextWeek()
     {
         // Get the current week from the session
@@ -157,7 +154,6 @@ class LeagueController extends Controller
         }
         return response()->json(['message' => 'Week played successfully']);
     }
-
     private function calculateWinRatingEachTeam($team)
     {
         $strength = $team->strength;
@@ -171,7 +167,6 @@ class LeagueController extends Controller
         $goalsCount = round(($winRating / 100) * 10);// Adjust the goals count based on the win rating
         return $goalsCount;
     }
-
     private function updateTeamsStats($homeTeam, $awayTeam ,$homeGoals, $awayGoals){
         // Update the teams stats based on the match result
         if ($homeGoals > $awayGoals) {
@@ -234,7 +229,6 @@ class LeagueController extends Controller
         $league_table->save();
         $league_table_loser->save();
     }
-
     public function playAllWeeks()
     {
         $currentWeek = Session::get('currentWeek', 1);
@@ -246,7 +240,6 @@ class LeagueController extends Controller
         
         return response()->json(['message' => 'All weeks played successfully']);
     }
-
     private function calculateChampionshipRate($team)
     {
         // 12 possible wins 100/12 = 8.33 points for each old win, 12 possible draws 50/12 = 4.16 points for each old draw, 12 possible losses 0/12 = 0 points for each old loss. Matches old resaults will take 50% of the global rate
@@ -282,7 +275,6 @@ class LeagueController extends Controller
 
         return $championshipRate;
     }
-
     private function normalizeChampionshipRates($teams)
     {
         $totalRate = 0;
@@ -302,7 +294,6 @@ class LeagueController extends Controller
 
         return $teams;
     }
-
     public function resetData()
     {
         
